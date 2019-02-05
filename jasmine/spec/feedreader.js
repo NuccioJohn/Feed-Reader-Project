@@ -34,6 +34,7 @@ $(function() {
          it('Thess urls are defined and not empty', function() {
              for(let feed of allFeeds){
                 expect(feed.url).toBeDefined();
+                expect(feed.url.length).not.toBe(0);
              }
          });
 
@@ -42,8 +43,13 @@ $(function() {
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+        it('These urls have a name and the name is not empty', function() {
+             for(let feed of allFeeds){
+                expect(feed.name).toBeDefined();
+                expect(feed.name.length).not.toBe(0);
+             }
+         });
     });
-
 
     /* TODO: Write a new test suite named "The menu" */
 
