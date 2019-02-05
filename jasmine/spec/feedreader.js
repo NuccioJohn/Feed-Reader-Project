@@ -90,6 +90,15 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+    describe('Initial Entries', function() {
+        beforeEach(function(done) {
+            loadFeed(0, done);
+        });
+
+        it('completed and checking for a single entity', function() {
+            expect(document.querySelector('.feed').children.length > 0).toBe(true);
+        });
+    });
 
     /* TODO: Write a new test suite named "New Feed Selection" */
 
@@ -97,4 +106,8 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
+    describe('New Feed Selection', function() {
+
+    });
 }());
