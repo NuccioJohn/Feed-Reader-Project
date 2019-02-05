@@ -70,6 +70,16 @@ $(function() {
         it('menu is hidden by default', function() {
             expect(document.querySelector('body').classList.contains('menu-hidden')).toBe(true);
         });
+
+        //Checks to make sure that the menu can toggle on and off
+        it('menu can toggle on and off to reveal and hide itself', function() {
+            //Opens Menu
+            document.querySelector('.menu-icon-link').click();
+            //Checks if menu is open
+            expect(document.querySelector('body').classList.contains('menu-hidden')).toBe(false);
+            //then closes the menu to make sure the page looks correct and doesnt make the "Menu is hiiden by Defulat test fail"
+            document.querySelector('.menu-icon-link').click();
+        });
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
