@@ -38,7 +38,6 @@ $(function() {
              }
          });
 
-
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
@@ -64,6 +63,14 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+
+    describe('The menu', function() {
+
+        /* This makes sure that the menu is hidden by default when the page loads*/
+        it('menu is hidden by default', function() {
+            expect(document.querySelector('body').classList.contains('menu-hidden')).toBe(true);
+        });
+    });
 
     /* TODO: Write a new test suite named "Initial Entries" */
 
