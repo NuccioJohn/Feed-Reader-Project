@@ -106,8 +106,45 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-
     describe('New Feed Selection', function() {
+        const feed = document.querySelector('.feed');
+        const firstFeed = [];
+        //const lengthToCheck = 4;
+
+        beforeEach(function(done) {
+            loadFeed(0);
+            firstFeed.push(feed.querySelector('.entry').innerText);
+            loadFeed(1, done);
+        });
+
+        it("THe Feed Changes dynamically", function() {
+            console.log(feed.querySelector('.entry').innerText);
+            expect(firstFeed[0] === feed.querySelector('.entry').innerText).toBe(false);
+
+        });
 
     });
+
+    // describe('New Feed Selection', function() {
+    //     let feedHolder = [];
+    //     const feed = document.querySelector('.feed');
+
+    //     beforeEach(function(done) {
+    //         for(let i = 0; i < feed.children.lenght; i++){
+    //             if(i < feedSize-1){
+    //                 loadFeed(i);
+    //                 feedHolder.push(feed.children[i].innerText);
+    //             }else{
+    //                 loadFeed(i, done);
+    //                 feedHolder.push(feed.children[0].innerText);
+    //             }
+    //         }
+    //     });
+
+    //     it("THe Feed Changes dynamically", function() {
+    //         for(let i = 0; i < feedSize; i++){
+    //             expect(feedHolder[i] === feed.children[i].innerText).toBe(false);
+    //         }
+    //     });
+    // });
 }());
