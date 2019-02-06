@@ -22,7 +22,10 @@ $(function() {
          * page?
          */
         it('are defined', function() {
+            //This line below check to make sure that the all Feeds variable is defined.
             expect(allFeeds).toBeDefined();
+            //This line below makes sure that the length of the all feeds is at least
+            //one,which ensures its not empty.
             expect(allFeeds.length).not.toBe(0);
         });
 
@@ -33,7 +36,11 @@ $(function() {
          */
          it('Thess urls are defined and not empty', function() {
              for(let feed of allFeeds){
+                //This line below ensures that each element in the array of allFeeds
+                //has a url property that exists
                 expect(feed.url).toBeDefined();
+                //This line below makes sure that each url that has already been checked 
+                // for its existance has at least someting in it. 
                 expect(feed.url.length).not.toBe(0);
              }
          });
@@ -44,7 +51,11 @@ $(function() {
          */
         it('These urls have a name and the name is not empty', function() {
              for(let feed of allFeeds){
+                //This line below ensures that each element in the array of allFeeds
+                //has a name property that exists
                 expect(feed.name).toBeDefined();
+                //This line below makes sure that each name that has already been checked 
+                // for its existance has at least someting in it. 
                 expect(feed.name.length).not.toBe(0);
              }
          });
@@ -79,6 +90,8 @@ $(function() {
             expect(document.querySelector('body').classList.contains('menu-hidden')).toBe(false);
             //then closes the menu to make sure the page looks correct and doesnt make the "Menu is hiiden by Defulat test fail"
             document.querySelector('.menu-icon-link').click();
+            //Checks to make sure the menu is closed once again
+            expect(document.querySelector('body').classList.contains('menu-hidden')).toBe(true);
         });
     });
 
@@ -96,7 +109,14 @@ $(function() {
         });
 
         it('completed and checking for a single entity', function() {
-            expect(document.querySelector('.feed').children.length > 0).toBe(true);
+            //expect(document.querySelector('.feed').children.length > 0).toBe(true);
+            //Pulling out feed to be in this scope
+            const feed = document.querySelector('.feed');
+            //Pulling out the first child of the feed object to be in this scope
+            const entry = feed.querySelector('.entry')
+            //Just making sure that the article with the '.entry' class exists and its length is 
+            //greater than zero
+            expect(entry != null && entry != undefined && entry.innerText.length > 0).toBe(true);
         });
     });
 
